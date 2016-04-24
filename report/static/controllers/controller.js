@@ -22,9 +22,10 @@ function Login($scope, $http, $filter, $rootScope, $location) {
     };
 
     $scope.show = false;
+		$rootScope.IP = "54.187.32.139"
 
     $scope.login = function () {
-		url = 'http://localhost:8000/login/';
+		url = 'http://' + $rootScope.IP + ':80/login/';
 
         if($scope.user.username == undefined || $scope.user.username == "" || $scope.user.password ==undefined || $scope.user.password =="")
 				{
