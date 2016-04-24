@@ -1,0 +1,20 @@
+1. Working environment
+
+	python2.7x
+	django 1.9.4
+	pycharm
+
+ - Install pycharm
+
+		https://gist.github.com/shafi-codez/9788135 
+
+2. Run server
+ - Pull the project from github
+
+		$ git clone https://github.com/alexeygolovin5587/dashboard.git
+
+ - Run Server
+		In dashboard/, run the following command
+
+		$ sudo python manage.py runserver 0.0.0.0:80
+	
