@@ -14,7 +14,10 @@ function MainCtrl($scope) {
 		
 		angular.element(document).ready(function () {
 				$('#side-menu li').click(function(){
-					alert();
+					$('#side-menu li').each(function( index ) {
+								$( this ).attr('class', '');
+							});
+							$( this ).attr('class', 'active');
 				})
     });
 };
@@ -201,7 +204,10 @@ function ReportCtrl($scope, $http, $rootScope) {
 		});
 		angular.element(document).ready(function () {
 				$('#side-menu li').click(function(){
-					alert();
+					$('#side-menu li').each(function( index ) {
+								$( this ).attr('class', '');
+							});
+							$( this ).attr('class', 'active');
 				})
     });
 };

@@ -1,3 +1,5 @@
+
+
 .icon-spin {
   display: inline-block;
   -moz-animation: spin 2s infinite linear;
@@ -371,7 +373,6 @@ hr {
 #topbar .navbar-top-links ul.dropdown-alerts li ul li a {
   padding: 15px;
   display: block;
-  border-top: 1px solid #efefef;
   font-size: 12px;
 }
 #topbar .navbar-top-links ul.dropdown-alerts li ul li a span {
@@ -418,7 +419,6 @@ hr {
 #topbar .navbar-top-links ul.dropdown-messages li ul li a {
   padding: 15px;
   display: block;
-  border-top: 1px solid #efefef;
 }
 #topbar .navbar-top-links ul.dropdown-messages li ul li a .avatar img {
   width: 40px;
@@ -7012,4 +7012,8 @@ ul.chats li.out .message {
   -moz-border-radius: 0px !important;
   border-radius: 0px !important;
   border: 1px solid #e5e5e5;
+}
+
+#side-menu li.active{
+	background: #0000ee;
 }

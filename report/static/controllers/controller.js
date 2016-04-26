@@ -16,6 +16,7 @@ function MainCtrl($scope) {
 				$('#side-menu li').click(function(){
 					$('#side-menu li').each(function( index ) {
 								$( this ).attr('class', '');
+								
 							});
 							$( this ).attr('class', 'active');
 				})
