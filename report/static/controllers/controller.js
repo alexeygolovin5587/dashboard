@@ -26,7 +26,7 @@ function TableCtrl($scope, $http, $rootScope) {
                 "bServerSide": false,
                 "bProcessing": true
             });
-        }, 3500);
+        }, 3000);
 
     });
 };
