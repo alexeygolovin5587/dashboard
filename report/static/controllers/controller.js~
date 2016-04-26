@@ -26,7 +26,7 @@ function TableCtrl($scope, $http, $rootScope) {
                 "bServerSide": false,
                 "bProcessing": true
             });
-        }, 3500);
+        }, 5000);
 
     });
 };
@@ -93,7 +93,7 @@ function ReportCtrl($scope, $http, $rootScope) {
     $http.get('http://' + $rootScope.IP + ':' + $rootScope.PORT + '/reports/')
 		.success(function(response) {
 			$scope.leadscore = response.lead_score
-
+					setTimeout(function(){
             $('#pie-chart').highcharts({
                 chart: {
                     plotBackgroundColor: null,
@@ -183,6 +183,7 @@ function ReportCtrl($scope, $http, $rootScope) {
                     }
                 }],
             });
+					}, 5000);
 		});
 };
 
