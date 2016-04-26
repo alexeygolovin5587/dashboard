@@ -14,6 +14,8 @@
         };
         $rootScope.is_authenticated = false;
 
+        $rootScope.IP = "localhost"
+        $rootScope.PORT = '8000'
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
             var requireLogin = toState.data.requireLogin;
 

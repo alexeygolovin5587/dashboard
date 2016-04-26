@@ -15,6 +15,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     });
 
     $stateProvider
+        .state('login', {
+            url: "/login",
+            templateUrl: "views/Login.html",
+            data: { pageTitle: 'Example view' }
+        })
         .state('index', {
             abstract: true,
             url: "/index",
@@ -38,11 +43,44 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 }
             }
         })
-        .state('login', {
-            url: "/login",
-            templateUrl: "views/Login.html",
-            data: { pageTitle: 'Example view' }
+        .state('index.users', {
+            url: "/users",
+            templateUrl: "views/Users.html",
+            data: { pageTitle: 'Users' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad, $rootScope) {
+
+                    return $ocLazyLoad.load([
+                        {
+                            files: $rootScope.source
+                        },
+                        {
+                            files: ['script/tables/dataTables/jquery.dataTables.min.js', 'script/tables/dataTables/jquery.dataTables.bootstrap.js' , 'script/highchart.js', 'script/highcharts-more.js', 'script/hightchart-exporting.js']
+                        }
+                    ]);
+                }
+            }
         })
+
+        .state('index.reports', {
+                url: "/reports",
+                templateUrl: "views/Reports.html",
+                data: { pageTitle: 'Reports' },
+                resolve: {
+                    loadPlugin: function ($ocLazyLoad, $rootScope) {
+
+                        return $ocLazyLoad.load([
+                            {
+                                files: $rootScope.source
+                            },
+                            {
+                                files: ['script/jquery.flot.time.js', 'script/jquery.flot.axislabels.js']
+                            }
+                        ]);
+                    }
+                }
+            })
+
 }
 angular
     .module('dashboard')

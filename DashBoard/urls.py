@@ -19,4 +19,6 @@ from report import views
 urlpatterns = [
     url(r'^index/', views.MSC_Clear_Codes),
     url(r'^login/', views.login),
+    url(r'^users/', views.users),
+    url(r'^reports/', views.reports),
 ]
