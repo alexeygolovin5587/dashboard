@@ -22,7 +22,6 @@
                 <th>Marital Status</th>
                 <th>Velocity</th>
                 <th>Found Postal</th>
-								<th>Suggested Solar Panel Configuration</th>
             </tr>
             </thead>
             <tbody>
@@ -46,7 +45,6 @@
                     <td>{{ user.demographics.marital_status }}</td>
                     <td>{{ user.demographics.velocity }}</td>
                     <td>{{ user.found_postal.address1 }}, {{ user.found_postal.address2 }}, {{ user.found_postal.city }}, {{ user.found_postal.state }}, {{ user.location }}, {{ user.found_postal.zip }}</td>
-										<td>{{ user.solar_panel }}</td>
                 </tr>
             </tbody>
         </table>

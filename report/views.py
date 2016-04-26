@@ -174,6 +174,7 @@ def getRandomData():
             'interests': random.choice(interests),
             'education': random.choice(education),
             'salary': '$%d' % random.choice(salary),
+						'solar_panel': 'n/a',
             "demographics":{
                 "age": random.randint(10, 80),
                 "gender": random.choice(gender),

@@ -11,7 +11,15 @@ function MainCtrl($scope) {
     $scope.d1_1 = [["Jan", 200],["Feb", 201],["Mar", 199],["Apr", 187],["May", 193],["Jun", 192],["Jul", 206],["Aug", 186],["Sep", 206]];
     $scope.d1_2 = [["Jan", 122],["Feb", 170],["Mar", 163],["Apr", 161],["May", 122],["Jun", 136],["Jul", 130],["Aug", 128],["Sep", 148]];
     $scope.d1_3 = [["Jan", 81],["Feb", 92],["Mar", 98],["Apr", 102],["May", 80],["Jun", 97],["Jul", 86],["Aug", 105],["Sep", 85]];
-
+		
+		angular.element(document).ready(function () {
+				$('#side-menu li').click(function(){
+					$('#side-menu li').each(function( index ) {
+								$( this ).attr('class', '');
+							});
+							$( this ).attr('class', 'active');
+				})
+    });
 };
 
 function TableCtrl($scope, $http, $rootScope) {
@@ -21,11 +29,20 @@ function TableCtrl($scope, $http, $rootScope) {
 		});
 
     angular.element(document).ready(function () {
+
         setTimeout(function(){
+						$('#side-menu li').click(function(){
+							$('#side-menu li').each(function( index ) {
+								$( this ).attr('class', '');
+							});
+							$( this ).attr('class', 'active');
+						})
             $('#user_table').dataTable({
                 "bServerSide": false,
                 "bProcessing": true
             });
+
+						
         }, 3000);
 
     });
@@ -185,6 +202,14 @@ function ReportCtrl($scope, $http, $rootScope) {
             });
 					}, 2000);
 		});
+		angular.element(document).ready(function () {
+				$('#side-menu li').click(function(){
+					$('#side-menu li').each(function( index ) {
+								$( this ).attr('class', '');
+							});
+							$( this ).attr('class', 'active');
+				})
+    });
 };
 
 

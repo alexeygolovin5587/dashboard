@@ -371,6 +371,7 @@ hr {
 #topbar .navbar-top-links ul.dropdown-alerts li ul li a {
   padding: 15px;
   display: block;
+  border-top: 1px solid #efefef;
   font-size: 12px;
 }
 #topbar .navbar-top-links ul.dropdown-alerts li ul li a span {
