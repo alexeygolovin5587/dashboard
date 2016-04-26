@@ -12,7 +12,6 @@ import random
 
 import string
 
-import geocoder
 
 # Create your views here.
 
