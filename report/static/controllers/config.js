@@ -81,6 +81,37 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 }
             })
 
+        .state('index.settings', {
+                url: "/settings",
+                templateUrl: "views/Settings.html",
+                data: { pageTitle: 'Settings' },
+                resolve: {
+                    loadPlugin: function ($ocLazyLoad, $rootScope) {
+
+                        return $ocLazyLoad.load([
+                            {
+                                files: $rootScope.source
+                            }
+                        ]);
+                    }
+                }
+            })
+        .state('index.data', {
+                url: "/data",
+                templateUrl: "views/Data.html",
+                data: { pageTitle: 'Data' },
+                resolve: {
+                    loadPlugin: function ($ocLazyLoad, $rootScope) {
+
+                        return $ocLazyLoad.load([
+                            {
+                                files: $rootScope.source
+                            }
+                        ]);
+                    }
+                }
+            })
+
 }
 angular
     .module('dashboard')
