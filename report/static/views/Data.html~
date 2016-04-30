@@ -41,7 +41,7 @@
     <div class="portlet box" style="background-color: #ffffff">
 
         <div class="portlet-body" >
-            <img src="images/logo/docs-icon.png" alt="" class="img-responsive img-circle" style="margin: 10px;"/></div>
+            <img src="images/logo/google-drive-logo.png" alt="" class="img-responsive img-circle" style="margin: 10px;"/></div>
             <div style="text-align: center;">Please upload files using local file upload</div>
             <div class="text-center mbl" style="margin-top: 50px;">
                 <center><input data-my-Directive type="file" name="file" placeholder="Inlcude some file" class="btn btn-green" width="50px;"/></center>
