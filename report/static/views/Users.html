@@ -32,7 +32,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="user in userdata">
+                <tr ng-repeat="user in userdata" ng-click="person_click( $index + 1 )">
                     <td>{{ $index + 1 }}</td>
                     <td>{{ user.full_name }}</td>
                     <td>{{ user.demographics.age }}</td>
@@ -52,13 +52,13 @@
                     <td>{{ user.demographics.marital_status }}</td>
                     <td>{{ user.demographics.velocity }}</td>
                     <td>{{ user.found_postal.address1 }}, {{ user.found_postal.address2 }}, {{ user.found_postal.city }}, {{ user.found_postal.state }}, {{ user.location }}, {{ user.found_postal.zip }}</td>
-										<td>{{ user.solar_panel }}</td>
-										<td>{{ user.energy_consumption }}</td>
-										<td>{{ user.interest_in_solar }}</td>
-										<td>{{ user.neighborhood }}</td>
-										<td>{{ user.probability }}</td>
-										<td>{{ user.notes }}</td>
-										<td><a href="#" class="label label-sm label-success">Call Now</a>&nbsp;&nbsp;<a href="#" class="label label-sm label-danger">Send Email</a></td>
+                    <td>{{ user.solar_panel }}</td>
+                    <td>{{ user.energy_consumption }}</td>
+                    <td>{{ user.interest_in_solar }}</td>
+                    <td>{{ user.neighborhood }}</td>
+                    <td>{{ user.probability }}</td>
+                    <td>{{ user.notes }}</td>
+                    <td><a href="#" class="label label-sm label-success">Call Now</a>&nbsp;&nbsp;<a href="#" class="label label-sm label-danger">Send Email</a></td>
                 </tr>
             </tbody>
         </table>

@@ -3,12 +3,16 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
+from DashBoard import settings
+
 from collections import OrderedDict
 from models import *
 import json
 
 import names
 import random
+import os
+
 
 import string
 
@@ -141,6 +145,68 @@ def reports(request):
         else:
             temp[element['time_subscribed']] = 0
     res['time_subscribed'] = temp
+
+    res = json.dumps(res)
+    return HttpResponse(res)
+
+@csrf_exempt
+def upload(request):
+	file = request.FILES['file']
+
+	temp = settings.BASE_DIR + '/report' + settings.STATIC_URL + 'upload'
+
+	if not os.path.exists(temp):
+		os.makedirs(temp)
+
+	filename = file._get_name()
+
+	fd = open('%s/%s' % (temp, str(filename)), 'wb')
+	for chunk in file.chunks():
+		fd.write(chunk)
+	fd.close()
+
+	return HttpResponse('')
+
+@csrf_exempt
+def profile(request):
+    res = dict()
+
+    res['energy'] = {
+        'Epic': [0, 0, 0, 0, 0, 0.00006, 0.00011, 0.00032, 0.00110, 0.00235, 0.00369, 0.00640,
+                0.01005, 0.01436, 0.02063, 0.03057, 0.04618, 0.06444, 0.09822, 0.15468, 0.20434, 0.24126,
+                0.27387, 0.29459, 0.31056, 0.31982, 0.32040, 0.31233, 0.29224, 0.27342, 0.26662,
+                0.26956, 0.27912, 0.28999, 0.28965, 0.27826, 0.25579, 0.25722, 0.24826, 0.24605,
+                0.24304, 0.23464, 0.23708, 0.24099, 0.24357, 0.24237, 0.24401, 0.24344, 0.23586,
+                0.22380, 0.21004, 0.17287, 0.14747, 0.13076, 0.12555, 0.12144, 0.11009, 0.10950,
+                0.10871, 0.10824, 0.10577, 0.10527, 0.10475, 0.10421, 0.10358, 0.10295, 0.10104],
+        'MainStream':[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0.00005, 0.00025, 0.00050, 0.01020, 0.00150, 0.00200, 0.00426, 0.00660, 0.00869, 0.01060, 0.01605, 0.02471, 0.03322,
+                    0.04238, 0.05221, 0.06129, 0.07089, 0.08339, 0.09399, 0.10538, 0.11643, 0.13092, 0.14478,
+                    0.15915, 0.17385, 0.19055, 0.21205, 0.23044, 0.25393, 0.27935, 0.30062, 0.32049,
+                    0.33952, 0.35804, 0.37431, 0.39197, 0.45000, 0.43000, 0.41000, 0.39000, 0.37000,
+                    0.35000, 0.33000, 0.31000, 0.29000, 0.27000, 0.25000, 0.24000, 0.23000, 0.22000,
+                    0.21000, 0.20000, 0.19000, 0.18000, 0.18000, 0.17000, 0.16000]
+    }
+
+    res['interests'] = {
+        'Saving': random.randint(1, 100),
+        'Security': random.randint(1, 100),
+        'Home Improvement': random.randint(1, 100),
+        'Neighbor Influence': random.randint(1, 100)
+    }
+
+    res['tpyeofsys'] = {
+        'system':{
+            'kw': random.randint(3, 7),
+            'price': random.randint(1000, 99999)
+        },
+        'lilon':{
+            'kw': random.randint(3, 7),
+            'price': random.randint(1000, 99999)
+        }
+    }
+
+    res['profile_image'] = 'images/person/default.png'
 
     res = json.dumps(res)
     return HttpResponse(res)

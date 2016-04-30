@@ -14,6 +14,11 @@
         };
         $rootScope.is_authenticated = false;
 
+        $rootScope.pass_data = {
+            user: '',
+            profile: ''
+        }
+
         $rootScope.IP = "54.187.32.139"
         $rootScope.PORT = '80'
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
@@ -24,6 +29,36 @@
               // get me a login modal!
             }
           });
+    })
+    .directive('myDirective', function ($rootScope, httpPostFactory) {
+        return {
+            restrict: 'A',
+            scope: true,
+            link: function (scope, element, attr) {
+                element.bind('change', function () {
+                    var formData = new FormData();
+                    formData.append('file', element[0].files[0]);
+                    httpPostFactory('http://' + $rootScope.IP + ':' + $rootScope.PORT + '/upload/', formData, function (callback) {
+                       // recieve image name to use in a ng-src
+                        console.log(callback);
+                    });
+                });
+
+            }
+        };
+    })
+
+    .factory('httpPostFactory', function ($http) {
+        return function (file, data, callback) {
+            $http({
+                url: file,
+                method: "POST",
+                data: data,
+                headers: {'Content-Type': undefined}
+            }).success(function (response) {
+                callback(response);
+            });
+        };
     })
 })();
 

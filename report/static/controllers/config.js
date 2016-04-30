@@ -54,8 +54,8 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                         {
                             files: $rootScope.source
                         },
-                        {
-                            files: ['script/tables/dataTables/jquery.dataTables.min.js', 'script/tables/dataTables/jquery.dataTables.bootstrap.js' , 'script/highchart.js', 'script/highcharts-more.js', 'script/hightchart-exporting.js']
+												{
+                            files: ['script/tables/dataTables/jquery.dataTables.min.js', 'script/tables/dataTables/jquery.dataTables.bootstrap.js']
                         }
                     ]);
                 }
@@ -74,7 +74,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                                 files: $rootScope.source
                             },
                             {
-                                files: ['script/jquery.flot.time.js', 'script/jquery.flot.axislabels.js']
+                                files: ['script/jquery.flot.time.js', 'script/jquery.flot.axislabels.js','https://code.highcharts.com/highcharts.js']
                             }
                         ]);
                     }
@@ -106,6 +106,24 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                         return $ocLazyLoad.load([
                             {
                                 files: $rootScope.source
+                            }
+                        ]);
+                    }
+                }
+            })
+        .state('index.profile', {
+                url: "/profile",
+                templateUrl: "views/Profile.html",
+                data: { pageTitle: 'Profile' },
+                resolve: {
+                    loadPlugin: function ($ocLazyLoad, $rootScope) {
+
+                        return $ocLazyLoad.load([
+                            {
+                                files: $rootScope.source
+                            },
+                            {
+                                files: ['script/jquery.flot.time.js', 'script/jquery.flot.axislabels.js', 'script/highchart.js']
                             }
                         ]);
                     }
