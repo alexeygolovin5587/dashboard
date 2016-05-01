@@ -19,8 +19,8 @@
             profile: ''
         }
 
-        $rootScope.IP = "localhost"
-        $rootScope.PORT = '8000'
+        $rootScope.IP = "54.187.32.139"
+        $rootScope.PORT = '80'
 
 				$rootScope.formData = null
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
