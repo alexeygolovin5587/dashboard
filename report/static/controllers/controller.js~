@@ -20,7 +20,6 @@ function Data($scope, $rootScope, httpPostFactory) {
 		$scope.uploadError = false;
 
 		$scope.upload = function(){
-			alert()
 			if($rootScope.formData == null)
 			{
 					$scope.uploadError = true;
@@ -565,6 +564,7 @@ function ProfileCtrl($scope, $http, $rootScope, $location) {
 angular
     .module('dashboard')
     .controller('MainCtrl', MainCtrl)
+		.controller('Data', Data)
     .controller('Login', Login)
     .controller('TableCtrl', TableCtrl)
     .controller('ReportCtrl', ReportCtrl)

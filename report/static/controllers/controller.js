@@ -20,7 +20,6 @@ function Data($scope, $rootScope, httpPostFactory) {
 		$scope.uploadError = false;
 
 		$scope.upload = function(){
-			alert()
 			if($rootScope.formData == null)
 			{
 					$scope.uploadError = true;
