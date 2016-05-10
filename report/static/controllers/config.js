@@ -74,7 +74,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                                 files: $rootScope.source
                             },
                             {
-                                files: ['script/highchart.js']
+                                files: ['script/jquery.flot.time.js', 'script/jquery.flot.axislabels.js','https://code.highcharts.com/highcharts.js']
                             }
                         ]);
                     }

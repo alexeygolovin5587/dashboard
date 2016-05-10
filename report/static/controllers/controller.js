@@ -6,43 +6,22 @@
 /**
  * MainCtrl - controller
  */
-function MainCtrl($scope, $rootScope, httpPostFactory) {
+function MainCtrl($scope) {
     //BEGIN LINE CHART
     $scope.d1_1 = [["Jan", 200],["Feb", 201],["Mar", 199],["Apr", 187],["May", 193],["Jun", 192],["Jul", 206],["Aug", 186],["Sep", 206]];
     $scope.d1_2 = [["Jan", 122],["Feb", 170],["Mar", 163],["Apr", 161],["May", 122],["Jun", 136],["Jul", 130],["Aug", 128],["Sep", 148]];
-    $scope.d1_3 = [["Jan", 81],["Feb", 92],["Mar", 98],["Apr", 102],["May", 80],["Jun", 97],["Jul", 86],["Aug", 105],["Sep", 85]];	
-
+    $scope.d1_3 = [["Jan", 81],["Feb", 92],["Mar", 98],["Apr", 102],["May", 80],["Jun", 97],["Jul", 86],["Aug", 105],["Sep", 85]];
 		
-};
-
-function Data($scope, $rootScope, httpPostFactory) {
-		$scope.uploadMessage = false;
-		$scope.uploadError = false;
-
-		$scope.upload = function(){
-			if($rootScope.formData == null)
-			{
-					$scope.uploadError = true;
-					$scope.uploadMessage = false;
-			}
-			else
-				httpPostFactory('http://' + $rootScope.IP + ':' + $rootScope.PORT + '/upload/', $rootScope.formData, function (callback) {
-				   	$scope.uploadError = false;
-						$scope.uploadMessage = true;
-						$rootScope.formData = null
-				});
-		}
-
 		angular.element(document).ready(function () {
 				$('#side-menu li').click(function(){
 					$('#side-menu li').each(function( index ) {
 								$( this ).attr('class', '');
+								
 							});
 							$( this ).attr('class', 'active');
 				})
-				
     });
-}
+};
 
 function TableCtrl($scope, $http, $rootScope, $location) {
     $http.get('http://' + $rootScope.IP + ':' + $rootScope.PORT + '/users/')
@@ -255,8 +234,7 @@ function Login($scope, $http, $filter, $rootScope, $location) {
 
 
     $scope.login = function () {
-				
-				url = 'http://' + $rootScope.IP + ':' + $rootScope.PORT + '/login/';
+		url = 'http://' + $rootScope.IP + ':' + $rootScope.PORT + '/login/';
 
         if($scope.user.username == undefined || $scope.user.username == "" || $scope.user.password ==undefined || $scope.user.password =="")
 				{
@@ -560,11 +538,9 @@ function ProfileCtrl($scope, $http, $rootScope, $location) {
     });
 };
 
-
 angular
     .module('dashboard')
     .controller('MainCtrl', MainCtrl)
-		.controller('Data', Data)
     .controller('Login', Login)
     .controller('TableCtrl', TableCtrl)
     .controller('ReportCtrl', ReportCtrl)

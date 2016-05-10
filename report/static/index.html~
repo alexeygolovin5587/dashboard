@@ -64,15 +64,11 @@
     <script src="script/jquery.flot.spline.js"></script>
     <script src="script/zabuto_calendar.min.js"></script>
 
-    <style>
-        #user_table_length{
-            width: 50%;
-            float: left;
-        }
-        #user_table_filter{
-            float: right;
-        }
-    </style>
-
+		<script>
+			$(document).ready(function(){alert()})
+			$('#side-menu li').click(function(){
+				alert();
+			})
+		</script>
 </body>
 </html>

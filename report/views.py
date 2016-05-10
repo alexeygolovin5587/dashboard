@@ -16,6 +16,8 @@ import os
 
 import string
 
+from users import *
+
 
 # Create your views here.
 
@@ -29,11 +31,14 @@ def MSC_Clear_Codes(request):
 @csrf_exempt
 def login(request):
     data = json.loads(request.body)
+
     res = dict()
-    if data['username'] == "alexey" and data["password"] == "123":
-        res['login'] = "success"
-    else:
-        res['login'] = "failed"
+
+    res['login'] = "failed"
+    for username in user_list.keys():
+        if data['username'] == username and data['password'] == user_list[username]:
+            res['login'] = "success"
+            break;
 
     res = json.dumps(res)
 
@@ -43,7 +48,10 @@ def login(request):
 def users(request):
     data = getRandomData()
 
-    res = json.dumps(data)
+    if fake_data_flag == True:
+        res = json.dumps(data)
+    else:
+        res = []
 
     return HttpResponse(res)
 
@@ -151,12 +159,12 @@ def reports(request):
 
 @csrf_exempt
 def upload(request):
-	file = request.FILES['file']
+    file = request.FILES['file']
 
-	temp = settings.BASE_DIR + '/report' + settings.STATIC_URL + 'upload'
+    temp = settings.BASE_DIR + '/report' + settings.STATIC_URL + 'upload'
 
-	if not os.path.exists(temp):
-		os.makedirs(temp)
+    if not os.path.exists(temp):
+        os.makedirs(temp)
 
 	filename = file._get_name()
 
@@ -164,8 +172,6 @@ def upload(request):
 	for chunk in file.chunks():
 		fd.write(chunk)
 	fd.close()
-
-	return HttpResponse('')
 
 @csrf_exempt
 def profile(request):

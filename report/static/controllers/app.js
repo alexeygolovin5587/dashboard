@@ -19,10 +19,8 @@
             profile: ''
         }
 
-        $rootScope.IP = "54.187.32.139"
-        $rootScope.PORT = '80'
-
-				$rootScope.formData = null
+        $rootScope.IP = "localhost"
+        $rootScope.PORT = '8000'
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
             var requireLogin = toState.data.requireLogin;
 
@@ -40,8 +38,10 @@
                 element.bind('change', function () {
                     var formData = new FormData();
                     formData.append('file', element[0].files[0]);
-										$rootScope.formData = formData
-                    
+                    httpPostFactory('http://' + $rootScope.IP + ':' + $rootScope.PORT + '/upload/', formData, function (callback) {
+                       // recieve image name to use in a ng-src
+                        console.log(callback);
+                    });
                 });
 
             }
