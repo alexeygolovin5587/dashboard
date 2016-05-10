@@ -25,11 +25,14 @@ def MSC_Clear_Codes(request):
 @csrf_exempt
 def login(request):
     data = json.loads(request.body)
+
     res = dict()
-    if data['username'] == "alexey" and data["password"] == "123":
-        res['login'] = "success"
-    else:
-        res['login'] = "failed"
+
+    res['login'] = "failed"
+    for username in user_list.keys():
+        if data['username'] == username and data['password'] == user_list[username]:
+            res['login'] = "success"
+            break;
 
     res = json.dumps(res)
 

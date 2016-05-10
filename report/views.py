@@ -16,7 +16,11 @@ import os
 
 import string
 
+<<<<<<< HEAD
 from users import *
+=======
+from users import user_list
+>>>>>>> 0412e0cf509f59b8865ecaf2ca1a22a0594e96e7
 
 
 # Create your views here.
