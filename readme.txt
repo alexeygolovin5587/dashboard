@@ -1,3 +1,12 @@
+- Add flag variable for disabling fake data
+
+Go to dashboard/report/users.py
+
+fake_data_flag = True
+
+If fake_data_flag is False, it will disable fake data.
+
+
 - Adding list of username and password for login
 
 Go to dashboard/report/users.py

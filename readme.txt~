@@ -1,3 +1,16 @@
+- Adding list of username and password for login
+
+Go to dashboard/report/users.py
+Here you can add new user for login as the following.
+
+user_list = {
+    "alexey":"123",
+    "username": "password",
+		"new username": "new password"
+}
+
+
+
 1. Working environment
 
 	python2.7x
