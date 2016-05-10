@@ -1,3 +1,7 @@
+- Adding disable fake data functionality.
+
+Go to dashboard/report/users.py
+
 - Adding list of username and password for login
 
 Go to dashboard/report/users.py
